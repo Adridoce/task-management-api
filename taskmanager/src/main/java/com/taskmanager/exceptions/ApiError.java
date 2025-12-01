@@ -11,7 +11,7 @@ public class ApiError {
 
     private final int status;
     private final String error;
-    private final String message;
+    private final Object message;
     private final LocalDateTime timestamp;
     private final String path;
 }

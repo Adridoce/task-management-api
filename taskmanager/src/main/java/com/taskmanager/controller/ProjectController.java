@@ -1,10 +1,12 @@
 package com.taskmanager.controller;
 
+import com.taskmanager.dto.project.ProjectRequestDto;
 import com.taskmanager.dto.project.ProjectResponseDto;
 import com.taskmanager.dto.project.ProjectUpdateDto;
 import com.taskmanager.service.ProjectService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,11 @@ public class ProjectController {
     @GetMapping("/search")
     public ResponseEntity<List<ProjectResponseDto>> getProjectsByName(@RequestParam String name) {
         return ResponseEntity.ok().body(projectService.searchProjectsByName(name));
+    }
+
+    @PostMapping
+    public ResponseEntity<ProjectResponseDto> createProject(@Valid @RequestBody ProjectRequestDto dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(dto));
     }
 
     @PatchMapping("/{id}")
