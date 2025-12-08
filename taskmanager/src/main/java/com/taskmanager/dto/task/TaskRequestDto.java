@@ -23,6 +23,5 @@ public class TaskRequestDto {
     @NotNull(message = "El proyecto es obligatorio")
     private Long projectId;
 
-    @NotNull(message = "La tarea debe de estar asignada a un usuario")
     private Long assignedUserId;
 }

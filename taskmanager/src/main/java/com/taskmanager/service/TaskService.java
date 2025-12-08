@@ -80,7 +80,7 @@ public class TaskService {
     }
 
     public List<TaskResponseDto> getTasksByUser(Long id) {
-        List<Task> tasks = taskRepository.findByAssignedUser(id);
+        List<Task> tasks = taskRepository.findByAssignedUserId(id);
         return taskMapper.toResponseList(tasks);
     }
 
